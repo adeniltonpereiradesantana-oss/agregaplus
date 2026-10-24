@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Agrega+</title>
+  <meta name="description" content="Agrega+ · lançamentos, fechamento e pagamento de agregados">
+  <meta name="theme-color" content="#14181F">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232350C2'/%3E%3Cpath d='M6 11h12v10H6zM18 15h4l4 4v2h-8z' fill='none' stroke='white' stroke-width='2' stroke-linejoin='round'/%3E%3Ccircle cx='10' cy='22' r='2' fill='white'/%3E%3Ccircle cx='22' cy='22' r='2' fill='white'/%3E%3C/svg%3E">
+  <style>
+    html, body { margin: 0; height: 100%; background: #14181F; }
+    iframe { position: fixed; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
+    .aviso { position: fixed; inset: 0; display: grid; place-items: center; color: #B8C0CC; font: 15px system-ui, sans-serif; text-align: center; padding: 24px; }
+    .aviso a { color: #fff; }
+  </style>
+</head>
+<body>
+  <!--
+    Página do domínio agregaplus.com.br: mostra o Agrega+ (Google Apps Script) em tela cheia.
+    Troque o endereço abaixo pelo link /exec da implantação do Agrega+ (Implantar > Gerenciar implantações).
+    Use sempre a MESMA implantação (edite e escolha "Nova versão") para o link não mudar.
+  -->
+  <div class="aviso" id="aviso">Carregando o Agrega+…<br><br><a id="direto" href="#">Se não abrir, clique aqui.</a></div>
+  <iframe id="app" title="Agrega+" allow="clipboard-write; camera" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+  <script>
+    var URL_SISTEMA = 'https://script.google.com/macros/s/AKfycbwvPF3DGUjhJhxgKAJH-ukcldiy0UO9rDz994FyeEzG54WEqQ7Wpgrbvo4OId6nHt0O/exec';
+    var f = document.getElementById('app');
+    document.getElementById('direto').href = URL_SISTEMA;
+    f.addEventListener('load', function () { document.getElementById('aviso').style.display = 'none'; });
+    f.src = URL_SISTEMA;
+  </script>
+</body>
+</html>
