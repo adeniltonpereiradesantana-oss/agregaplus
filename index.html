@@ -37,15 +37,15 @@
     .sub { font-size: 15px; color: var(--texto-2); margin-top: -6px; }
 
     /* estrada com o caminhão */
-    .estrada { position: relative; width: 100%; height: 92px; animation: subir .8s .15s cubic-bezier(.2, .8, .2, 1) both; }
+    .estrada { position: relative; width: 100%; height: 100px; animation: subir .8s .15s cubic-bezier(.2, .8, .2, 1) both; }
     .asfalto { position: absolute; left: 0; right: 0; bottom: 14px; height: 4px; border-radius: 4px; background: #262D3A; overflow: hidden; }
     .asfalto::before {
       content: ""; position: absolute; inset: 0; width: 200%;
       background: repeating-linear-gradient(90deg, #5B6472 0 26px, transparent 26px 52px);
       animation: faixa .9s linear infinite;
     }
-    .caminhao { position: absolute; bottom: 16px; left: 0; width: 120px; animation: rodar 3.6s cubic-bezier(.45, .05, .55, .95) infinite; }
-    .caminhao svg { display: block; width: 120px; height: auto; animation: balanco .35s ease-in-out infinite alternate; }
+    .caminhao { position: absolute; bottom: 16px; left: 0; width: 140px; animation: rodar 3.6s cubic-bezier(.45, .05, .55, .95) infinite; }
+    .caminhao svg { display: block; width: 140px; height: auto; animation: balanco .35s ease-in-out infinite alternate; }
     .roda { transform-box: fill-box; transform-origin: center; animation: girar .5s linear infinite; }
     .poeira { position: absolute; bottom: 4px; left: -6px; width: 10px; height: 10px; border-radius: 50%; background: rgba(154, 163, 177, .35); animation: poeira .7s ease-out infinite; }
     .poeira.p2 { animation-delay: .23s; } .poeira.p3 { animation-delay: .46s; }
@@ -64,16 +64,16 @@
     @keyframes subir { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
     @keyframes pulso { 0% { opacity: .9; transform: scale(.92); } 100% { opacity: 0; transform: scale(1.25); } }
     @keyframes faixa { to { transform: translateX(-52px); } }
-    @keyframes rodar { 0% { left: -130px; } 50% { left: calc(50% - 60px); } 100% { left: calc(100% + 10px); } }
+    @keyframes rodar { 0% { left: -150px; } 50% { left: calc(50% - 70px); } 100% { left: calc(100% + 10px); } }
     @keyframes balanco { from { transform: translateY(0); } to { transform: translateY(-1.5px); } }
     @keyframes girar { to { transform: rotate(360deg); } }
     @keyframes poeira { from { opacity: .8; transform: translate(0, 0) scale(.6); } to { opacity: 0; transform: translate(-26px, -10px) scale(1.6); } }
     @keyframes brilho { to { background-position: -200% 0; } }
 
-    @media (max-width: 480px) { .nome { font-size: 28px; } .icone { width: 64px; height: 64px; border-radius: 17px; } .caminhao, .caminhao svg { width: 96px; } }
+    @media (max-width: 480px) { .nome { font-size: 28px; } .icone { width: 64px; height: 64px; border-radius: 17px; } .caminhao, .caminhao svg { width: 108px; } }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation: none !important; }
-      .caminhao { left: calc(50% - 60px); }
+      .caminhao { left: calc(50% - 70px); }
     }
   </style>
 </head>
@@ -97,17 +97,19 @@
         <div class="asfalto"></div>
         <div class="caminhao">
           <span class="poeira"></span><span class="poeira p2"></span><span class="poeira p3"></span>
-          <svg viewBox="0 0 120 56">
-            <rect x="2" y="6" width="70" height="36" rx="4" fill="#2350C2"/>
-            <rect x="2" y="6" width="70" height="9" rx="4" fill="#4A78EE"/>
-            <text x="37" y="31" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="800" fill="#fff">Agrega+</text>
-            <path d="M74 18h22l12 13v11H74z" fill="#E7EAF0"/>
-            <path d="M80 22h14l8 9H80z" fill="#9DB8FF"/>
-            <rect x="74" y="38" width="34" height="4" fill="#C9CFD8"/>
-            <rect x="106" y="33" width="5" height="4" rx="1" fill="#E8913A"/>
-            <g class="roda"><circle cx="20" cy="46" r="8" fill="#14181F"/><circle cx="20" cy="46" r="3.2" fill="#9AA3B1"/><rect x="19" y="39" width="2" height="5" fill="#5B6472"/></g>
-            <g class="roda"><circle cx="54" cy="46" r="8" fill="#14181F"/><circle cx="54" cy="46" r="3.2" fill="#9AA3B1"/><rect x="53" y="39" width="2" height="5" fill="#5B6472"/></g>
-            <g class="roda"><circle cx="94" cy="46" r="8" fill="#14181F"/><circle cx="94" cy="46" r="3.2" fill="#9AA3B1"/><rect x="93" y="39" width="2" height="5" fill="#5B6472"/></g>
+          <svg viewBox="36 0 124 64">
+            <defs><linearGradient id="g4" x1="0" x2="1"><stop offset="0" stop-color="#2350C2"/><stop offset="1" stop-color="#4A78EE"/></linearGradient></defs>
+            <path d="M42 12a4 4 0 0 1 4-4h62v36H42z" fill="url(#g4)"/>
+            <path d="M111 12h29c5 0 8 3 9.5 7.5L155 36v8h-44z" fill="url(#g4)"/>
+            <path d="M134 16h6c3 0 4.6 1.8 5.4 4.4l2.8 9.6H134z" fill="#0F1217" opacity=".55"/>
+            <rect x="42" y="44" width="114" height="3" fill="#1A3E99"/>
+            <text x="75" y="31" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="800" fill="#fff">Agrega+</text>
+            <path d="M50 37h50" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".35"/>
+            <rect x="151" y="33" width="4" height="3" rx="1" fill="#E8913A"/>
+            <path d="M56 50a11 11 0 0 1 22 0z" fill="#0A0C10"/>
+            <g class="roda"><circle cx="67" cy="50" r="9" fill="#0F1217" stroke="#4A78EE" stroke-width="2"/><circle cx="67" cy="50" r="3" fill="#4A78EE"/><path d="M67 44v12" stroke="#4A78EE" stroke-width="1.4"/></g>
+            <path d="M127 50a11 11 0 0 1 22 0z" fill="#0A0C10"/>
+            <g class="roda"><circle cx="138" cy="50" r="9" fill="#0F1217" stroke="#4A78EE" stroke-width="2"/><circle cx="138" cy="50" r="3" fill="#4A78EE"/><path d="M138 44v12" stroke="#4A78EE" stroke-width="1.4"/></g>
           </svg>
         </div>
       </div>
@@ -119,7 +121,7 @@
   </div>
   <div class="rodape" id="rodape">agregaplus.com.br</div>
 
-  <iframe id="app" title="Agrega" allow="clipboard-write; camera" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+  <iframe id="app" title="Agrega+" allow="clipboard-write; camera" referrerpolicy="strict-origin-when-cross-origin"></iframe>
 
   <script>
     var URL_SISTEMA = 'https://script.google.com/macros/s/AKfycbxETwcIXAop71o1lbPVGtj4sQi4hl5amar88vSNERZjqb4cKuS638REWLxJYsb_BIhr/exec';
@@ -161,4 +163,3 @@
   </script>
 </body>
 </html>
-
